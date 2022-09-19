@@ -1,0 +1,15 @@
+.main-container{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  color: rgb(235, 230, 230)
+}
+.currency-container{
+  width: 30%;
+  height: 50%; 
+}
+h1{
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+<div class="currency-input">
+  <input  type="text" [value]="amount1" (input)="onAmountChange($event)" />
+    <select #c1 id="country1" [value]="currency1" (change)="onCurrencyChange(c1.value)">
+    <option value="USD">USD</option>
+    <option value="UAH">UAH</option>
+    <option value="EUR">EUR</option>
+  </select>
+  <input type="text" [value]="amount2" (input)="onAmountChange2($event)" />
+    <select #c2 id="country2" [value]="currency2" (change)="onCurrencyChange2(c2.value)">
+    <option value="USD">USD</option>
+    <option value="UAH">UAH</option>
+    <option value="EUR">EUR</option>
+  </select>
+</div>
