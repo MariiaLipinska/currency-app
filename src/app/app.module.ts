@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header.component';
-import { InputComponent } from './components/input.component';
+import { HeaderComponent } from './components/header-component/header.component';
+import { InputComponent } from './components/input-component/input.component';
 import { CurrencyapidataService } from './currencyapidata.service';
 
 @NgModule({

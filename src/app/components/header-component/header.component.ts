@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrencyapidataService } from '../currencyapidata.service';
+import { CurrencyapidataService } from '../../currencyapidata.service';
+
 
 @Component({
   selector: 'header-component',
@@ -11,20 +12,21 @@ export class HeaderComponent implements OnInit{
   base2: string = "EUR";
   result: number = 1;
   result2: number = 1;
-  currjson: any = [];
+  rates: string[] = [];
+  currjson: any = {};
   constructor(private currency: CurrencyapidataService){}
 
   ngOnInit() {
     this.currency.getcurrencydata(this.base).subscribe((data) => {
-      console.log(data)
-      this.currjson = JSON.stringify(data);
-      this.currjson = JSON.parse(this.currjson);
+      console.log(data);
+      this.currjson = data;
+      this.rates = this.currjson.rates;
       this.result = +(this.currjson.rates.UAH).toFixed(4);
     })
     this.currency.getcurrencydata(this.base2).subscribe((data) => {
-      console.log(data)
-      this.currjson = JSON.stringify(data);
-      this.currjson = JSON.parse(this.currjson);
+      console.log(data);
+      this.currjson = data;
+      this.rates = this.currjson.rates;
       this.result2 = +(this.currjson.rates.UAH).toFixed(4);
       })
   }
