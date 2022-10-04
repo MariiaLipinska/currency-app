@@ -1,29 +1,15 @@
-<div class="currency-input">
-  <input #input1 type="text" [value]="amount1" (input)="handleAmountChange(+(input1.value), c1.value)" />
-  <select #c1 [value]="currency1" (change)="handleAmountChange(+(input1.value), c1.value)">
-    <option value="USD">USD</option>
-    <option value="UAH">UAH</option>
-    <option value="EUR">EUR</option>
-  </select>
-  <input #i2 type="text" [value]="amount2" (input)="handleAmount2Change(+(i2.value), c2.value)" />
-  <select #c2 [value]="currency2" (change)="handleAmount2Change(+(i2.value), c2.value)">
-    <option value="USD">USD</option>
-    <option value="UAH">UAH</option>
-    <option value="EUR">EUR</option>
-  </select>
-</div>
 
-<!-- <div class="currency-input" (change)="onChange(amount1, currency1,amount2, currency2)">
-  <input type="text" [value]="amount1" (input)="onChange($event,c1.value, )" />
-  <select #c1 id="country1" [value]="currency1" (change)="onCurrencyChange(c1.value)">
-    <option value="USD">USD</option>
-    <option value="UAH">UAH</option>
-    <option value="EUR">EUR</option>
-  </select>
-  <input type="text" [value]="amount2" (input)="onAmountChange2($event)" />
-  <select #c2 id="country2" [value]="currency2" (change)="onCurrencyChange2(c2.value)">
-    <option value="USD">USD</option>
-    <option value="UAH">UAH</option>
-    <option value="EUR">EUR</option>
-  </select>
-</div> -->
+<form action="" class="currency-input" [formGroup]="currencyConventerForm">
+  <input type="text" [value]="amount1" #i1 formControlName="amount1" (input)="onChange(+(i1.value), s1.value)" (blur)="touched()"/>
+    <select  formControlName="currency1" #s1 [value]="currency1" (input)="onChange(+(i1.value), s1.value)" (blur)="touched()" >
+      <option value="USD">USD</option>
+      <option value="UAH">UAH</option>
+      <option value="EUR">EUR</option>
+    </select>
+  <input type="text" [value]="amount2" #i2 formControlName="amount2" (input)="onChange2(+(i2.value), s2.value)" (blur)="touched()" />
+    <select formControlName="currency2" #s2 [value]="currency2" (input)="onChange2(+(i2.value), s2.value)" (blur)="touched()">
+      <option value="USD">USD</option>
+      <option value="UAH">UAH</option>
+      <option value="EUR">EUR</option>
+    </select>
+</form>
